@@ -58,6 +58,11 @@
     <include>
       <uri>model://ground_plane</uri>
     </include>
+
+    <include>
+      <uri>model://erle</uri>
+      <pose>-10 -5 0 0 0 0</pose>
+    </include>
 <!--
     <include>
       <uri>model://fast_food</uri>
