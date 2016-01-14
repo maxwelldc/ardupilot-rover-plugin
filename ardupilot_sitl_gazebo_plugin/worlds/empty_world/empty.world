@@ -63,6 +63,7 @@
       <uri>model://erle</uri>
       <pose>-10 -5 0 0 0 0</pose>
     </include>
+
 <!--
     <include>
       <uri>model://fast_food</uri>
@@ -109,7 +110,8 @@
          OR ELSE WE WILL ALWAYS FORGET IT IS HERE !!! -->
 
 
-    <plugin name="ardupilot_sitl_gazebo_plugin" filename="libardupilot_sitl_gazebo_plugin.so"/>
-
+    <plugin name="ardupilot_sitl_gazebo_plugin" filename="libardupilot_sitl_gazebo_plugin.so">
+    <UAV_MODEL>erlecopter</UAV_MODEL>
+    </plugin>
   </world>
 </sdf>

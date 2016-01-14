@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 
-<robot name="iris" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="erlecopter" xmlns:xacro="http://ros.org/wiki/xacro">
   <!-- Properties -->
-  <xacro:property name="namespace" value="iris" />
+  <xacro:property name="namespace" value="erlecopter" />
   <xacro:property name="rotor_velocity_slowdown_sim" value="10" />
   <xacro:property name="mesh_file" value="erlecopter.dae" />
   <xacro:property name="mesh_scale" value="1 1 1"/> <!-- 1 1 1 -->
@@ -138,7 +138,7 @@
 
   <!-- Sonar height sensor -->
   <xacro:include filename="$(find ardupilot_sitl_gazebo_plugin)/urdf/sensors/sonar_sensor.urdf.xacro" />
- <!--
+
   <xacro:sonar_sensor
     name="sonar"
     parent="base_link"
@@ -151,9 +151,9 @@
     sensor_mesh="lidar_lite_v2/meshes/lidar_lite_v2.dae">
     <origin xyz="0.12 0.0 0.0" rpy="0 ${90*M_PI/180} 0"/>
   </xacro:sonar_sensor>
-     -->
+
     <!-- Frontal range sensor -->
- <!--  <xacro:sonar_sensor
+<!--  <xacro:sonar_sensor
     name="sonar2"
     parent="base_link"
     ros_topic="sonar_front"
@@ -166,7 +166,7 @@
     <origin xyz="0.13 0.0 0.02" rpy="0 0 0"/>
   </xacro:sonar_sensor>
 -->
-<!--
+
   <xacro:include filename="$(find ardupilot_sitl_gazebo_plugin)/urdf/sensors/lidar_sensor.urdf.xacro" />
    <xacro:lidar_sensor
     name="sonar2"
@@ -182,12 +182,12 @@
     sensor_mesh="lidar_lite_v2_withRay/meshes/lidar_lite_v2_withRay.dae">
     <origin xyz="0.13 0.0 0.02" rpy="0 0 0"/>
   </xacro:lidar_sensor>
--->
+
 
   <!-- Downward facing camera -->
   <xacro:include filename="$(find ardupilot_sitl_gazebo_plugin)/urdf/sensors/generic_camera.urdf.xacro" />
   <xacro:generic_camera
-    name="iris/bottom"
+    name="erlecopter/bottom"
     parent="base_link"
     ros_topic="image_raw"
     cam_info_topic="camera_info"
@@ -196,14 +196,14 @@
     res_y="360"
     image_format="R8G8B8"
     hfov="81"
-    framename="iris_bottomcam">
+    framename="erlecopter_bottomcam">
     <origin xyz="0.14 0.0 -0.02" rpy="0 ${M_PI/2} 0"/>
   </xacro:generic_camera>  
 
   <!-- Front facing camera -->
   <xacro:include filename="$(find ardupilot_sitl_gazebo_plugin)/urdf/sensors/generic_camera.urdf.xacro" />
   <xacro:generic_camera
-    name="iris/front"
+    name="erlecopter/front"
     parent="base_link"
     ros_topic="image_front_raw"
     cam_info_topic="camera_front_info"
@@ -212,7 +212,7 @@
     res_y="360"
     image_format="R8G8B8"
     hfov="81"
-    framename="iris_frontcam">
+    framename="erlecopter_frontcam">
     <origin xyz="0.17 0.0 0.0" rpy="0 0 0"/>
   </xacro:generic_camera>  
 
@@ -232,7 +232,7 @@
     motor_number="0"
     rotor_drag_coefficient="${rotor_drag_coefficient}"
     rolling_moment_coefficient="${rolling_moment_coefficient}"
-    mesh="iris_prop"
+    mesh="erlecopter_prop"
     mesh_scale="${mesh_scale_prop}"
     color="Yellow">
     <origin xyz="${arm_length_front_x} -${arm_length_front_y} ${rotor_offset_top}" rpy="0 0 0" />
@@ -254,7 +254,7 @@
     motor_number="1"
     rotor_drag_coefficient="${rotor_drag_coefficient}"
     rolling_moment_coefficient="${rolling_moment_coefficient}"
-    mesh="iris_prop"
+    mesh="erlecopter_prop"
     mesh_scale="${mesh_scale_prop}"
     color="Black">
     <origin xyz="-${arm_length_back_x} ${arm_length_back_y} ${rotor_offset_top}" rpy="0 0 0" />
@@ -275,7 +275,7 @@
     motor_number="2"
     rotor_drag_coefficient="${rotor_drag_coefficient}"
     rolling_moment_coefficient="${rolling_moment_coefficient}"
-    mesh="iris_prop"
+    mesh="erlecopter_prop"
     mesh_scale="${mesh_scale_prop}"
     color="Yellow">
     <origin xyz="${arm_length_front_x} ${arm_length_front_y} ${rotor_offset_top}" rpy="0 0 0" />
@@ -296,7 +296,7 @@
     motor_number="3"
     rotor_drag_coefficient="${rotor_drag_coefficient}"
     rolling_moment_coefficient="${rolling_moment_coefficient}"
-    mesh="iris_prop"
+    mesh="erlecopter_prop"
     mesh_scale="${mesh_scale_prop}"
     color="Black">
     <origin xyz="-${arm_length_back_x} -${arm_length_back_y} ${rotor_offset_top}" rpy="0 0 0" />

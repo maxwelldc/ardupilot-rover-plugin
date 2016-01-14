@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 
-<robot name="iris" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="erlecopter" xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:include filename="$(find rotors_description)/urdf/component_snippets.xacro" />
-  <!-- Instantiate iris "mechanics" -->
+  <!-- Instantiate erlecopter "mechanics" -->
   <xacro:include filename="$(find ardupilot_sitl_gazebo_plugin)/urdf/erlecopter.xacro" />
   
   <!-- Specify reference parameters for GNSS receiver. -->
