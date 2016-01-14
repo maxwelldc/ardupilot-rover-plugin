@@ -65,6 +65,10 @@
           <topicName>${ros_topic}</topicName>
           <frameId>${name}_link</frameId>
         </plugin>
+	<plugin name="gazebo_ros_${name}_controller" filename="libgazebo_ros_laser.so">
+          <topicName>/scan</topicName>
+          <frameName>${name}_link</frameName>
+	</plugin>
       </sensor>
     </gazebo>
   </xacro:macro>
