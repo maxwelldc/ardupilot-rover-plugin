@@ -44,6 +44,7 @@ AUTHORS
 -------
 Aurélien ROY
 Maxime LAFLEUR
+Iker Zamora (Rover Simulation)
 
 
 ARDUPILOT
@@ -51,6 +52,7 @@ ARDUPILOT
 The plugin currently supports:
    ArduCopter
    ArduPlane
+   APMRover
 
 
 ISSUES
