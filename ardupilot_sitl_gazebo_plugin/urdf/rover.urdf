@@ -45,7 +45,7 @@
 
   <link name="chassis">
     <inertial>
-      <mass value="500.0"/>
+      <mass value="800.0"/>
       <origin rpy="0 0 0" xyz="0.1 0 0.4"/>
       <inertia ixx="140" ixy="0.0" ixz="0.0" iyy="550" iyz="0.0" izz="550"/>
     </inertial>
@@ -64,7 +64,7 @@
   </link>
   <link name="front_left_wheel">
     <inertial>
-      <mass value="12"/>
+      <mass value="20"/>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <inertia ixx="0.5" ixy="0.0" ixz="0.0" iyy="0.5" iyz="0.0" izz="1.0"/>
     </inertial>
@@ -83,7 +83,7 @@
   </link>
   <link name="front_right_wheel">
     <inertial>
-      <mass value="12"/>
+      <mass value="20"/>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <inertia ixx="0.5" ixy="0.0" ixz="0.0" iyy="0.5" iyz="0.0" izz="1.0"/>
     </inertial>
@@ -102,7 +102,7 @@
   </link>
   <link name="rear_left_wheel">
     <inertial>
-      <mass value="12"/>
+      <mass value="20"/>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <inertia ixx="0.5" ixy="0.0" ixz="0.0" iyy="0.5" iyz="0.0" izz="1.0"/>
     </inertial>
@@ -122,7 +122,7 @@
 
   <link name="rear_right_wheel">
     <inertial>
-      <mass value="12"/>
+      <mass value="20"/>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <inertia ixx="0.5" ixy="0.0" ixz="0.0" iyy="0.5" iyz="0.0" izz="1.0"/>
     </inertial>
@@ -357,7 +357,7 @@
     <origin xyz="0.8 0 1.2" rpy="0 0 0"/>
   </xacro:generic_camera>
 
-  <xacro:include filename="$(find ardupilot_sitl_gazebo_plugin)/urdf/sensors/lidar_sensor.urdf.xacro" />
+<xacro:include filename="$(find ardupilot_sitl_gazebo_plugin)/urdf/sensors/lidar_sensor.urdf.xacro" />
   <xacro:lidar_sensor
     name="sonar2"
     parent="chassis"
