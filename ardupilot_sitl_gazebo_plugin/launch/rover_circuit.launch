@@ -20,8 +20,8 @@
   <arg name="verbose" default="true"/>
 
   <!-- Initial pose for the drone -->
-  <arg name="x" default="-10.0"/> <!-- [m], positive to the North -->
-  <arg name="y" default="-8.0"/> <!-- [m], negative to the East -->
+  <arg name="x" default="-18.0"/> <!-- [m], positive to the North -->
+  <arg name="y" default="-13.0"/> <!-- [m], negative to the East -->
   <arg name="z" default="0.0"/> <!-- [m], positive Up -->
   <arg name="roll" default="0"/> <!-- [rad] -->
   <arg name="pitch" default="0"/> <!-- [rad] -->
