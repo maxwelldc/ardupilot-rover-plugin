@@ -114,12 +114,21 @@ namespace gazebo {
       this->command_sub_ = node_handle_->subscribe(this->command_sub_topic_, 1000, &AircraftPlugin::OnControl, this);
       this->limit_Upper = this->joints[kLeftAileron]->GetUpperLimit(0).Degree() ;
       this->limit_Lower = this->joints[kLeftFlap]->GetLowerLimit(0).Degree() ;
+#if GAZEBO_MAJOR_VERSION >= 7
+      this->joints[kLeftAileron]->SetPosition(0, 0);
+      this->joints[kRightAileron]->SetPosition(0, 0);
+      this->joints[kElevators]->SetPosition(0,0);
+      this->joints[kRudder]->SetPosition(0, 0);
+      this->joints[kLeftFlap]->SetPosition(0, 0);
+      this->joints[kRightFlap]->SetPosition(0, 0);
+#else
       this->joints[kLeftAileron]->SetAngle(0, 0);
       this->joints[kRightAileron]->SetAngle(0, 0);
       this->joints[kElevators]->SetAngle(0,0);
       this->joints[kRudder]->SetAngle(0, 0);
       this->joints[kLeftFlap]->SetAngle(0, 0);
       this->joints[kRightFlap]->SetAngle(0, 0);
+#endif
    }
 
    // This gets called by the world update start event.
