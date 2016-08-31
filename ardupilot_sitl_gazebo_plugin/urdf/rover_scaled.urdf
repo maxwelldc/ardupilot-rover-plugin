@@ -354,7 +354,7 @@
     image_format="R8G8B8"
     hfov="110"
     framename="${namespace}_frontcam">
-    <origin xyz="0.8 0 1.2" rpy="0 0 0"/>
+    <origin xyz="0.2 0 0.15" rpy="0 0 0"/>
   </xacro:generic_camera>
 
 <xacro:include filename="$(find ardupilot_sitl_gazebo_plugin)/urdf/sensors/lidar_sensor.urdf.xacro" />
@@ -370,13 +370,15 @@
     ray_count_horizontal="542"
     ray_count_vertical="1"
     sensor_mesh="lidar_lite_v2_withRay/meshes/lidar_lite_v2_withRay.dae">
-    <origin xyz="2.3 0 0.42" rpy="0 0 0"/>
+    <origin xyz="0 0 0.4" rpy="0 0 0"/>
   </xacro:lidar_sensor>
 
-  <xacro:include filename="$(find ardupilot_sitl_gazebo_plugin)/urdf/sensors/kinect.urdf.xacro" />  
+  <xacro:include filename="$(find ardupilot_sitl_gazebo_plugin)/urdf/sensors/kinect.urdf.xacro" /> 
+
+<!-- 
   <xacro:sensor_kinect 
     parent="chassis">
-    <origin xyz="1.6 0 0.55" rpy="0 0 0"/>
+    <origin xyz="0.35 0 0.2" rpy="0 0 0"/>
   </xacro:sensor_kinect>
-
+-->
 </robot>
