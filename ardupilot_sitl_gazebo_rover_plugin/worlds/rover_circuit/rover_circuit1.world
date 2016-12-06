@@ -1,0 +1,13 @@
+<!--
+This work is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License. 
+To view a copy of this license, visit http://creativecommons.org/licenses/by-nc/4.0/.
+-->
+
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="vrc_task_1">
+    <plugin name="ardupilot_sitl_gazebo_plugin_rover" filename="libardupilot_sitl_gazebo_plugin_rover.so">
+    <UAV_MODEL>rover</UAV_MODEL>
+    </plugin>
+  </world>
+</sdf>
