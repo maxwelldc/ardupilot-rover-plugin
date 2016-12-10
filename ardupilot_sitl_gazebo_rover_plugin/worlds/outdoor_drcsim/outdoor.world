@@ -430,7 +430,7 @@
       </link>
     </model>
 
-    <plugin name="ardupilot_sitl_gazebo_plugin" filename="libardupilot_sitl_gazebo_plugin.so"/>
+    <plugin name="ardupilot_sitl_gazebo_rover_plugin" filename="libardupilot_sitl_gazebo_rover_plugin.so"/>
 
   </world>
 </sdf>

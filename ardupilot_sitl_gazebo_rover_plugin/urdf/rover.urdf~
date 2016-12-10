@@ -58,7 +58,7 @@
     <visual name="visual">
       <origin rpy="-1.5708 0 3.1416" xyz="0.2 1.96 0.26"/>
       <geometry>
-        <mesh filename="package://ardupilot_sitl_gazebo_plugin/meshes/meshes_rover/ErleRover_chassis.STL" scale="0.0055 0.0055 0.0055"/>
+        <mesh filename="package://ardupilot_sitl_gazebo_rover_plugin/meshes/meshes_rover/ErleRover_chassis.STL" scale="0.0055 0.0055 0.0055"/>
       </geometry>
     </visual>
   </link>
@@ -77,7 +77,7 @@
     <visual name="tire_visual">
       <origin rpy="3.1416 0 0" xyz="-1.2 -0.1 1.67"/>
       <geometry>
-        <mesh filename="package://ardupilot_sitl_gazebo_plugin/meshes/meshes_rover/ErleRover_wheel4.STL" scale="0.007 0.007 0.007"/>
+        <mesh filename="package://ardupilot_sitl_gazebo_rover_plugin/meshes/meshes_rover/ErleRover_wheel4.STL" scale="0.007 0.007 0.007"/>
       </geometry>
     </visual>
   </link>
@@ -96,7 +96,7 @@
     <visual name="visual">
       <origin rpy="3.1416 0 0" xyz="1.25 -0.1 1.67"/>
       <geometry>
-        <mesh filename="package://ardupilot_sitl_gazebo_plugin/meshes/meshes_rover/ErleRover_wheel2.STL" scale="0.007 0.007 0.007"/>
+        <mesh filename="package://ardupilot_sitl_gazebo_rover_plugin/meshes/meshes_rover/ErleRover_wheel2.STL" scale="0.007 0.007 0.007"/>
       </geometry>
     </visual>
   </link>
@@ -115,7 +115,7 @@
     <visual name="visual">
       <origin rpy="0 0 0" xyz="1.25 0.1 -3.33"/>
       <geometry>
-        <mesh filename="package://ardupilot_sitl_gazebo_plugin/meshes/meshes_rover/ErleRover_wheel3.STL" scale="0.007 0.007 0.007"/>
+        <mesh filename="package://ardupilot_sitl_gazebo_rover_plugin/meshes/meshes_rover/ErleRover_wheel3.STL" scale="0.007 0.007 0.007"/>
       </geometry>
     </visual>
   </link>
@@ -135,7 +135,7 @@
     <visual name="visual">
       <origin rpy="0 0 0" xyz="1.25 0.1 -3.33"/>
       <geometry>
-        <mesh filename="package://ardupilot_sitl_gazebo_plugin/meshes/meshes_rover/ErleRover_wheel1.STL" scale="0.007 0.007 0.007"/>
+        <mesh filename="package://ardupilot_sitl_gazebo_rover_plugin/meshes/meshes_rover/ErleRover_wheel1.STL" scale="0.007 0.007 0.007"/>
       </geometry>
     </visual>
   </link>
@@ -202,7 +202,7 @@
 
   <xacro:property name="namespace" value="rover" />
   <!-- Specify reference parameters for GNSS receiver. -->
-  <xacro:include filename="$(find ardupilot_sitl_gazebo_plugin)/urdf/gps_home_location.xacro" />
+  <xacro:include filename="$(find ardupilot_sitl_gazebo_rover_plugin)/urdf/gps_home_location.xacro" />
   <!-- in degrees, 0 so North is towards positive X values, and East is towards negative Y values -->
   <xacro:property name="referenceHeading" value="0" />
   
@@ -342,7 +342,7 @@
   </xacro:if>
 
   <!-- Front facing camera; Prasad N R 64x48 @5Hz instead of 640x480 @60Hz -->
-  <xacro:include filename="$(find ardupilot_sitl_gazebo_plugin)/urdf/sensors/generic_camera.urdf.xacro" />
+  <xacro:include filename="$(find ardupilot_sitl_gazebo_rover_plugin)/urdf/sensors/generic_camera.urdf.xacro" />
   <xacro:generic_camera
     name="${namespace}/front"
     parent="chassis"
@@ -358,7 +358,7 @@
   </xacro:generic_camera>
 
 <!-- Prasad N R
-<xacro:include filename="$(find ardupilot_sitl_gazebo_plugin)/urdf/sensors/lidar_sensor.urdf.xacro" />
+<xacro:include filename="$(find ardupilot_sitl_gazebo_rover_plugin)/urdf/sensors/lidar_sensor.urdf.xacro" />
   <xacro:lidar_sensor
     name="sonar2"
     parent="chassis"
@@ -374,7 +374,7 @@
     <origin xyz="0.5 0 0.8" rpy="0 0 0"/>
   </xacro:lidar_sensor>
 
-  <xacro:include filename="$(find ardupilot_sitl_gazebo_plugin)/urdf/sensors/kinect.urdf.xacro" />  
+  <xacro:include filename="$(find ardupilot_sitl_gazebo_rover_plugin)/urdf/sensors/kinect.urdf.xacro" />  
   <xacro:sensor_kinect 
     parent="chassis">
     <origin xyz="1.6 0 0.55" rpy="0 0 0"/>

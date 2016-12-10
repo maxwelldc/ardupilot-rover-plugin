@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package>
-  <name>ardupilot_sitl_gazebo_plugin</name>
+  <name>ardupilot_sitl_gazebo_rover_plugin</name>
   <version>1.0.0</version>
-  <description>The ardupilot_sitl_gazebo_plugin package</description>
+  <description>The ardupilot_sitl_gazebo_rover_plugin package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
   <!-- Example:  -->

@@ -22,7 +22,7 @@
 #include "gazebo/physics/physics.hh"
 #include "gazebo/sensors/SensorManager.hh"
 #include "gazebo/transport/transport.hh"
-#include "../include/liftdrag_plugin.hh"
+#include "../include/liftdrag_rover_plugin.hh"
 
 using namespace gazebo;
 

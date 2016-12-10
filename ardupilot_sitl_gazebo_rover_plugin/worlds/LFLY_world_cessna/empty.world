@@ -84,7 +84,7 @@
       <uri>model://sun</uri>
     </include>
 	
-    <plugin name="ardupilot_sitl_gazebo_plugin" filename="libardupilot_sitl_gazebo_plugin.so">
+    <plugin name="ardupilot_sitl_gazebo_rover_plugin" filename="libardupilot_sitl_gazebo_rover_plugin.so">
 	<UAV_MODEL>cessna</UAV_MODEL>
     <NB_SERVOS_MOTOR_SPEED>5</NB_SERVOS_MOTOR_SPEED>
 	</plugin>

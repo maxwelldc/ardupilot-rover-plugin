@@ -13,14 +13,14 @@
  */
 
 /*
- * Gazebo Plugin:  ardupilot_sitl_gazebo_plugin
+ * Gazebo Plugin:  ardupilot_sitl_gazebo_rover_plugin
  * Description: 
  *   Implements plugin's methods related to the communication with
  *   the SITL interface of Ardupilot.
  *   e.g. covers ports opening, unpacking/packing input/output data.
  */
 
-#include "../include/ardupilot_sitl_gazebo_plugin/rover/ardupilot_sitl_gazebo_plugin.h"
+#include "../include/ardupilot_sitl_gazebo_rover_plugin/rover/ardupilot_sitl_gazebo_rover_plugin.h"
 
 namespace gazebo
 {
@@ -33,7 +33,7 @@ namespace gazebo
   Initializes variables and ports related to ArduPilot.
   In case of fatal failure, returns 'false'.
  */
-bool ArdupilotSitlGazeboPlugin::init_ardupilot_side()
+bool ArdupilotSitlGazeboRoverPlugin::init_ardupilot_side()
 {
     // Setup network infrastructure (opens ports from/to ArduPilot)
     open_control_socket();
@@ -50,7 +50,7 @@ bool ArdupilotSitlGazeboPlugin::init_ardupilot_side()
 /*
   open control socket from ArduPilot
  */
-bool ArdupilotSitlGazeboPlugin::open_control_socket()
+bool ArdupilotSitlGazeboRoverPlugin::open_control_socket()
 {
     if (_is_control_socket_open)
         return true;
@@ -72,7 +72,7 @@ bool ArdupilotSitlGazeboPlugin::open_control_socket()
 /*
   open fdm socket to ArduPilot
  */
-bool ArdupilotSitlGazeboPlugin::open_fdm_socket()
+bool ArdupilotSitlGazeboRoverPlugin::open_fdm_socket()
 {
     if (_is_fdm_socket_open)
         return true;
@@ -103,7 +103,7 @@ bool ArdupilotSitlGazeboPlugin::open_fdm_socket()
 /*
   Receive control inputs from the APM SITL and publishes them in a command/motor_speed topic
  */
-bool ArdupilotSitlGazeboPlugin::receive_apm_input()
+bool ArdupilotSitlGazeboRoverPlugin::receive_apm_input()
 {
     servo_packet pkt;
     int szRecv;
@@ -135,7 +135,7 @@ bool ArdupilotSitlGazeboPlugin::receive_apm_input()
 /*
   Packages the fdmState data and sends it to the APM SITL
  */
-void ArdupilotSitlGazeboPlugin::send_apm_output()
+void ArdupilotSitlGazeboRoverPlugin::send_apm_output()
 {
     fdm_packet pkt;
 

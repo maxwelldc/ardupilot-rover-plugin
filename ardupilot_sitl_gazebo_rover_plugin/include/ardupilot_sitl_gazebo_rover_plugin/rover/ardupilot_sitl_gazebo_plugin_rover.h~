@@ -25,8 +25,8 @@
 // Future improvements
 // this->physicsEngine->SetSeed(_msg->seed());
 
-#ifndef ARDUPILOT_SITL_GAZEBO_PLUGIN_H
-#define ARDUPILOT_SITL_GAZEBO_PLUGIN_H
+#ifndef ARDUPILOT_SITL_GAZEBO_ROVER_PLUGIN_H
+#define ARDUPILOT_SITL_GAZEBO_ROVER_PLUGIN_H
 
 
 // Gazebo includes
@@ -70,8 +70,8 @@
 #include "../SocketAPM.h"
 
 // Plugin's services
-#include "ardupilot_sitl_gazebo_plugin/TakeApmLapseLock.h"
-#include "ardupilot_sitl_gazebo_plugin/ReleaseApmLapseLock.h"
+#include "ardupilot_sitl_gazebo_rover_plugin/TakeApmLapseLock.h"
+#include "ardupilot_sitl_gazebo_rover_plugin/ReleaseApmLapseLock.h"
 
 
 //--------------------------------------------
@@ -132,13 +132,13 @@
 namespace gazebo
 {
 
-class ArdupilotSitlGazeboPlugin : public WorldPlugin
+class ArdupilotSitlGazeboRoverPlugin : public WorldPlugin
 {
   public:
         
     // Constructor
-    ArdupilotSitlGazeboPlugin();
-    ~ArdupilotSitlGazeboPlugin();
+    ArdupilotSitlGazeboRoverPlugin();
+    ~ArdupilotSitlGazeboRoverPlugin();
     
     // Public function members
     void Load(physics::WorldPtr world, sdf::ElementPtr sdf);
@@ -163,10 +163,10 @@ class ArdupilotSitlGazeboPlugin : public WorldPlugin
   #endif
     
     // Services:
-    bool service_take_lapseLock(ardupilot_sitl_gazebo_plugin::TakeApmLapseLock::Request  &req,
-                                ardupilot_sitl_gazebo_plugin::TakeApmLapseLock::Response &res);
-    bool service_release_lapseLock(ardupilot_sitl_gazebo_plugin::ReleaseApmLapseLock::Request  &req,
-                                   ardupilot_sitl_gazebo_plugin::ReleaseApmLapseLock::Response &res);
+    bool service_take_lapseLock(ardupilot_sitl_gazebo_rover_plugin::TakeApmLapseLock::Request  &req,
+                                ardupilot_sitl_gazebo_rover_plugin::TakeApmLapseLock::Response &res);
+    bool service_release_lapseLock(ardupilot_sitl_gazebo_rover_plugin::ReleaseApmLapseLock::Request  &req,
+                                   ardupilot_sitl_gazebo_rover_plugin::ReleaseApmLapseLock::Response &res);
 
     
     
@@ -340,5 +340,5 @@ class ArdupilotSitlGazeboPlugin : public WorldPlugin
 }   // end of namespace gazebo
 
 
-#endif // ARDUPILOT_SITL_GAZEBO_PLUGIN_H
+#endif // ARDUPILOT_SITL_GAZEBO_ROVER_PLUGIN_H
 

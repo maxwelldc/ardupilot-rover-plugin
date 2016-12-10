@@ -14,7 +14,7 @@
 
 
 
-#include "../include/ardupilot_sitl_gazebo_plugin/rover/ardupilot_sitl_gazebo_plugin.h"
+#include "../include/ardupilot_sitl_gazebo_rover_plugin/rover/ardupilot_sitl_gazebo_rover_plugin.h"
 #include <cstdlib>
 
 // TODO: find a cleaner way to ge the robot namespace
@@ -33,7 +33,7 @@ namespace gazebo
   Initializes variables and declares subscribers/publisher related to ROS.
   In case of fatal failure, returns 'false'.
  */
-bool ArdupilotSitlGazeboPlugin::init_ros_side()
+bool ArdupilotSitlGazeboRoverPlugin::init_ros_side()
 {
     // Make sure the ROS node for Gazebo has already been initialized                                                                                    
     if (!ros::isInitialized()) {
@@ -49,19 +49,19 @@ bool ArdupilotSitlGazeboPlugin::init_ros_side()
 
     // IMU topic (noise free)
     topicNameBuf = std::string("/") + _modelName + "/ground_truth/imu";
-    _imu_subscriber = _rosnode->subscribe(topicNameBuf.c_str(), 1, &ArdupilotSitlGazeboPlugin::imu_callback, this);
+    _imu_subscriber = _rosnode->subscribe(topicNameBuf.c_str(), 1, &ArdupilotSitlGazeboRoverPlugin::imu_callback, this);
 
     // GPS topic
     topicNameBuf = std::string("/") + _modelName + "/fix";
-    _gps_subscriber = _rosnode->subscribe(topicNameBuf.c_str(), 1, &ArdupilotSitlGazeboPlugin::gps_callback, this);
+    _gps_subscriber = _rosnode->subscribe(topicNameBuf.c_str(), 1, &ArdupilotSitlGazeboRoverPlugin::gps_callback, this);
 
     // GPS velocity topic
     topicNameBuf = std::string("/") + _modelName + "/fix_velocity";
-    _gps_velocity_subscriber = _rosnode->subscribe(topicNameBuf.c_str(), 1, &ArdupilotSitlGazeboPlugin::gps_velocity_callback, this);
+    _gps_velocity_subscriber = _rosnode->subscribe(topicNameBuf.c_str(), 1, &ArdupilotSitlGazeboRoverPlugin::gps_velocity_callback, this);
 
-    _sonar_down_subscriber   = _rosnode->subscribe("/sonar_down", 1, &ArdupilotSitlGazeboPlugin::sonar_down_callback,   this);
+    _sonar_down_subscriber   = _rosnode->subscribe("/sonar_down", 1, &ArdupilotSitlGazeboRoverPlugin::sonar_down_callback,   this);
 #if SONAR_FRONT == ENABLED
-    _sonar_front_subscriber  = _rosnode->subscribe("/sonar_front", 1, &ArdupilotSitlGazeboPlugin::sonar_front_callback,  this);
+    _sonar_front_subscriber  = _rosnode->subscribe("/sonar_front", 1, &ArdupilotSitlGazeboRoverPlugin::sonar_front_callback,  this);
 #endif
     
     // Notes:
@@ -73,11 +73,11 @@ bool ArdupilotSitlGazeboPlugin::init_ros_side()
     topicNameBuf = std::string("/") + _modelName + "/command/motor_speed";
     _motorSpd_publisher = _rosnode->advertise<mav_msgs::CommandMotorSpeed>(topicNameBuf.c_str(), 10);
     
-    this->velSub = _rosnode->subscribe("/rover/cmd_vel", 100, &ArdupilotSitlGazeboPlugin::OnVelMsg, this);
+    this->velSub = _rosnode->subscribe("/rover/cmd_vel", 100, &ArdupilotSitlGazeboRoverPlugin::OnVelMsg, this);
 
     // Services
-    _service_take_lapseLock    = _rosnode->advertiseService("take_apm_lapseLock",    &ArdupilotSitlGazeboPlugin::service_take_lapseLock,    this);
-    _service_release_lapseLock = _rosnode->advertiseService("release_apm_lapseLock", &ArdupilotSitlGazeboPlugin::service_release_lapseLock, this);
+    _service_take_lapseLock    = _rosnode->advertiseService("take_apm_lapseLock",    &ArdupilotSitlGazeboRoverPlugin::service_take_lapseLock,    this);
+    _service_release_lapseLock = _rosnode->advertiseService("release_apm_lapseLock", &ArdupilotSitlGazeboRoverPlugin::service_release_lapseLock, this);
     ROS_INFO( PLUGIN_LOG_PREPEND "Services declared !");
       
     return true;
@@ -88,8 +88,8 @@ bool ArdupilotSitlGazeboPlugin::init_ros_side()
 //  ROS Services
 //-------------------------------------------------
 
-bool ArdupilotSitlGazeboPlugin::service_take_lapseLock(ardupilot_sitl_gazebo_plugin::TakeApmLapseLock::Request  &req,
-                                                       ardupilot_sitl_gazebo_plugin::TakeApmLapseLock::Response &res)
+bool ArdupilotSitlGazeboRoverPlugin::service_take_lapseLock(ardupilot_sitl_gazebo_rover_plugin::TakeApmLapseLock::Request  &req,
+                                                       ardupilot_sitl_gazebo_rover_plugin::TakeApmLapseLock::Response &res)
 {
     ROS_DEBUG( PLUGIN_LOG_PREPEND "service_take_lapseLock: called by process '%s'", req.process_id.c_str());
     take_lapseLock(req.max_duration);
@@ -98,8 +98,8 @@ bool ArdupilotSitlGazeboPlugin::service_take_lapseLock(ardupilot_sitl_gazebo_plu
 }
 
   
-bool ArdupilotSitlGazeboPlugin::service_release_lapseLock(ardupilot_sitl_gazebo_plugin::ReleaseApmLapseLock::Request  &req,
-                                                          ardupilot_sitl_gazebo_plugin::ReleaseApmLapseLock::Response &res)
+bool ArdupilotSitlGazeboRoverPlugin::service_release_lapseLock(ardupilot_sitl_gazebo_rover_plugin::ReleaseApmLapseLock::Request  &req,
+                                                          ardupilot_sitl_gazebo_rover_plugin::ReleaseApmLapseLock::Response &res)
 {
     ROS_DEBUG( PLUGIN_LOG_PREPEND "service_release_lapseLock: called by process '%s'", req.process_id.c_str());
     release_lapseLock();
@@ -114,7 +114,7 @@ bool ArdupilotSitlGazeboPlugin::service_release_lapseLock(ardupilot_sitl_gazebo_
 /*
   Callback method for ROS messages ".../imu", coming from an IMU sensor
  */
-void ArdupilotSitlGazeboPlugin::imu_callback(const sensor_msgs::Imu &imu_msg)
+void ArdupilotSitlGazeboRoverPlugin::imu_callback(const sensor_msgs::Imu &imu_msg)
 {
     // This method is executed independently from the main loop thread.
     // Beware of access to shared variables memory. Use mutexes if required.
@@ -153,7 +153,7 @@ void ArdupilotSitlGazeboPlugin::imu_callback(const sensor_msgs::Imu &imu_msg)
 /*
   Callback method for ROS messages ".../fix", coming from a GPS sensor
  */
-void ArdupilotSitlGazeboPlugin::gps_callback(const sensor_msgs::NavSatFix &gps_fix_msg)
+void ArdupilotSitlGazeboRoverPlugin::gps_callback(const sensor_msgs::NavSatFix &gps_fix_msg)
 {
     // This method is executed independently from the main loop thread.
     // Beware of access to shared variables memory. Use mutexes if required.
@@ -192,7 +192,7 @@ void ArdupilotSitlGazeboPlugin::gps_callback(const sensor_msgs::NavSatFix &gps_f
 /*
   Callback method for ROS messages ".../fix_velocity", coming from a GPS sensor
  */
-void ArdupilotSitlGazeboPlugin::gps_velocity_callback(const geometry_msgs::Vector3Stamped &gps_velocity_fix_msg)
+void ArdupilotSitlGazeboRoverPlugin::gps_velocity_callback(const geometry_msgs::Vector3Stamped &gps_velocity_fix_msg)
 {
     // This method is executed independently from the main loop thread.
     // Beware of access to shared variables memory. Use mutexes if required.
@@ -216,7 +216,7 @@ void ArdupilotSitlGazeboPlugin::gps_velocity_callback(const geometry_msgs::Vecto
 /*
   Callback method for ROS messages ".../sonar_down", coming from a range finder sensor
  */
-void ArdupilotSitlGazeboPlugin::sonar_down_callback(const sensor_msgs::Range &sonar_range_msg) 
+void ArdupilotSitlGazeboRoverPlugin::sonar_down_callback(const sensor_msgs::Range &sonar_range_msg) 
 {
     // This method is executed independently from the main loop thread.
     // Beware of access to shared variables memory. Use mutexes if required.
@@ -233,7 +233,7 @@ void ArdupilotSitlGazeboPlugin::sonar_down_callback(const sensor_msgs::Range &so
   Callback method for ROS messages ".../sonar_front", coming from a range finder sensor
  */
 #if SONAR_FRONT == ENABLED
-void ArdupilotSitlGazeboPlugin::sonar_front_callback(const sensor_msgs::Range &sonar_range_msg)
+void ArdupilotSitlGazeboRoverPlugin::sonar_front_callback(const sensor_msgs::Range &sonar_range_msg)
 {
     // This method is executed independently from the main loop thread.
     // Beware of access to shared variables memory. Use mutexes if required.
@@ -255,7 +255,7 @@ void ArdupilotSitlGazeboPlugin::sonar_front_callback(const sensor_msgs::Range &s
 /*
   Fill and publish motor speed command data message
  */
-void ArdupilotSitlGazeboPlugin::publish_commandMotorSpeed()
+void ArdupilotSitlGazeboRoverPlugin::publish_commandMotorSpeed()
 {
     boost::shared_ptr<mav_msgs::CommandMotorSpeed> cmdMotSpd_msg = boost::make_shared<mav_msgs::CommandMotorSpeed>();
     //auto cmdMotSpd_msg = boost::make_shared<mav_msgs::CommandMotorSpeed>();

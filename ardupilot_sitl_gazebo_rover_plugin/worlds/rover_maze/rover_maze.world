@@ -65,7 +65,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-nc/
       <pose>31 -9 0 0 0 0</pose>
     </include>
 
-    <plugin name="ardupilot_sitl_gazebo_plugin" filename="libardupilot_sitl_gazebo_plugin_rover.so">
+    <plugin name="ardupilot_sitl_gazebo_rover_plugin" filename="libardupilot_sitl_gazebo_rover_plugin_rover.so">
     <UAV_MODEL>rover</UAV_MODEL>
     </plugin>
   </world>

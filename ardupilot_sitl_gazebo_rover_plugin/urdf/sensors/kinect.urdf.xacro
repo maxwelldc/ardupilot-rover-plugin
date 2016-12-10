@@ -36,7 +36,7 @@
       <visual>
        <origin xyz="0 0 0" rpy="0 0 ${M_PI/2}"/>
         <geometry>
-         <mesh filename="package://ardupilot_sitl_gazebo_plugin/meshes/meshes_sensors/kinect/kinect.dae"/>
+         <mesh filename="package://ardupilot_sitl_gazebo_rover_plugin/meshes/meshes_sensors/kinect/kinect.dae"/>
         </geometry>
       </visual>
   	  <collision>

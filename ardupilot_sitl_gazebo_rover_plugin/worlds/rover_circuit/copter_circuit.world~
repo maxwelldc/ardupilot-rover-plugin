@@ -29,11 +29,11 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-nc/
       <pose>0 0 0 0 0 0</pose>
     </include>
 <!-- Prasad N R
-    <plugin name="ardupilot_sitl_gazebo_plugin_rover" filename="/home/prasad/simulation/ros_catkin_ws/devel/lib/libardupilot_sitl_gazebo_plugin_rover.so">
+    <plugin name="ardupilot_sitl_gazebo_rover_plugin_rover" filename="/home/prasad/simulation/ros_catkin_ws/devel/lib/libardupilot_sitl_gazebo_rover_plugin_rover.so">
     <UAV_MODEL>rover</UAV_MODEL>
     </plugin>
 
-    <plugin name="ardupilot_sitl_gazebo_plugin" filename="/home/prasad/simulation/ros_catkin_ws/devel/lib/libardupilot_sitl_gazebo_plugin.so">
+    <plugin name="ardupilot_sitl_gazebo_rover_plugin" filename="/home/prasad/simulation/ros_catkin_ws/devel/lib/libardupilot_sitl_gazebo_rover_plugin.so">
     <UAV_MODEL>erlecopter</UAV_MODEL>    
     </plugin>
 -->

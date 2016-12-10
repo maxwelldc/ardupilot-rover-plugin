@@ -17,7 +17,7 @@
   Source: Socket.cpp in the Ardupilot project
  */
 
-#include "../include/ardupilot_sitl_gazebo_plugin/SocketAPM.h"
+#include "../include/ardupilot_sitl_gazebo_rover_plugin/SocketAPM.h"
 
 /*
   constructor

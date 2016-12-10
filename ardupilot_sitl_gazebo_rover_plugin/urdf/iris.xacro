@@ -46,7 +46,7 @@
 
   <!-- Included URDF Files -->
   <!-- <xacro:include filename="$(find rotors_description)/urdf/multirotor_base.xacro" /> -->
-  <xacro:include filename="$(find ardupilot_sitl_gazebo_plugin)/urdf/multirotor_base.xacro" />
+  <xacro:include filename="$(find ardupilot_sitl_gazebo_rover_plugin)/urdf/multirotor_base.xacro" />
   
   <!-- Instantiate multirotor_base_macro once -->
   <xacro:multirotor_base_macro
@@ -65,7 +65,7 @@
   <xacro:property name="M_PI" value="3.1415926535897931" />
   
   <!-- Recorder cameras -->
-  <xacro:include filename="$(find ardupilot_sitl_gazebo_plugin)/urdf/recorder_camera.xacro" />
+  <xacro:include filename="$(find ardupilot_sitl_gazebo_rover_plugin)/urdf/recorder_camera.xacro" />
   <!--
 <xacro:recorder_camera
     name="recorder_cam_front_with_uav"
@@ -137,7 +137,7 @@
   <!-- Recorder cameras END -->
 
   <!-- Sonar height sensor -->
-  <xacro:include filename="$(find ardupilot_sitl_gazebo_plugin)/urdf/sensors/sonar_sensor.urdf.xacro" />
+  <xacro:include filename="$(find ardupilot_sitl_gazebo_rover_plugin)/urdf/sensors/sonar_sensor.urdf.xacro" />
  <!--
   <xacro:sonar_sensor
     name="sonar"
@@ -167,7 +167,7 @@
   </xacro:sonar_sensor>
 -->
 <!--
-  <xacro:include filename="$(find ardupilot_sitl_gazebo_plugin)/urdf/sensors/lidar_sensor.urdf.xacro" />
+  <xacro:include filename="$(find ardupilot_sitl_gazebo_rover_plugin)/urdf/sensors/lidar_sensor.urdf.xacro" />
    <xacro:lidar_sensor
     name="sonar2"
     parent="base_link"
@@ -185,7 +185,7 @@
 -->
 
   <!-- Downward facing camera -->
-  <xacro:include filename="$(find ardupilot_sitl_gazebo_plugin)/urdf/sensors/generic_camera.urdf.xacro" />
+  <xacro:include filename="$(find ardupilot_sitl_gazebo_rover_plugin)/urdf/sensors/generic_camera.urdf.xacro" />
   <xacro:generic_camera
     name="iris/bottom"
     parent="base_link"
@@ -201,7 +201,7 @@
   </xacro:generic_camera>  
 
   <!-- Front facing camera -->
-  <xacro:include filename="$(find ardupilot_sitl_gazebo_plugin)/urdf/sensors/generic_camera.urdf.xacro" />
+  <xacro:include filename="$(find ardupilot_sitl_gazebo_rover_plugin)/urdf/sensors/generic_camera.urdf.xacro" />
   <xacro:generic_camera
     name="iris/front"
     parent="base_link"

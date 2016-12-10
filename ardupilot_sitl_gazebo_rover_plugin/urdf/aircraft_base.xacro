@@ -20,12 +20,12 @@
          </inertial>
          <visual>
             <geometry>
-               <mesh filename="package://ardupilot_sitl_gazebo_plugin/meshes/meshes_drones/cessna/body.dae" />
+               <mesh filename="package://ardupilot_sitl_gazebo_rover_plugin/meshes/meshes_drones/cessna/body.dae" />
             </geometry>
          </visual>
          <collision name="collision">
             <geometry>
-               <mesh filename="package://ardupilot_sitl_gazebo_plugin/meshes/meshes_drones/cessna/body.dae" />
+               <mesh filename="package://ardupilot_sitl_gazebo_rover_plugin/meshes/meshes_drones/cessna/body.dae" />
             </geometry>
          </collision>
       </link>
@@ -39,13 +39,13 @@
          </inertial>
          <collision name="collision">
             <geometry>
-               <mesh filename="package://ardupilot_sitl_gazebo_plugin/meshes/meshes_drones/cessna/left_aileron.dae" />
+               <mesh filename="package://ardupilot_sitl_gazebo_rover_plugin/meshes/meshes_drones/cessna/left_aileron.dae" />
             </geometry>
             <origin xyz="1.92 -3.55 -1.3" rpy="-0.05 0 0.12" />
          </collision>
          <visual name="visual">
             <geometry>
-               <mesh filename="package://ardupilot_sitl_gazebo_plugin/meshes/meshes_drones/cessna/left_aileron.dae" />
+               <mesh filename="package://ardupilot_sitl_gazebo_rover_plugin/meshes/meshes_drones/cessna/left_aileron.dae" />
             </geometry>
             <origin xyz="1.92 -3.55 -1.3" rpy="-0.05 0 0.12" />
          </visual>
@@ -70,13 +70,13 @@
          </inertial>
          <collision name="collision">
             <geometry>
-               <mesh filename="package://ardupilot_sitl_gazebo_plugin/meshes/meshes_drones/cessna/right_aileron.dae" />
+               <mesh filename="package://ardupilot_sitl_gazebo_rover_plugin/meshes/meshes_drones/cessna/right_aileron.dae" />
             </geometry>
             <origin xyz="1.92 3.57 -1.3" rpy="0.05 0 -0.12" />
          </collision>
          <visual name="visual">
             <geometry>
-               <mesh filename="package://ardupilot_sitl_gazebo_plugin/meshes/meshes_drones/cessna/right_aileron.dae" />
+               <mesh filename="package://ardupilot_sitl_gazebo_rover_plugin/meshes/meshes_drones/cessna/right_aileron.dae" />
             </geometry>
             <origin xyz="1.92 3.57 -1.3" rpy="0.05 0 -0.12" />
          </visual>
@@ -101,13 +101,13 @@
          </inertial>
          <collision name="collision">
             <geometry>
-               <mesh filename="package://ardupilot_sitl_gazebo_plugin/meshes/meshes_drones/cessna/left_flap.dae" />
+               <mesh filename="package://ardupilot_sitl_gazebo_rover_plugin/meshes/meshes_drones/cessna/left_flap.dae" />
             </geometry>
             <origin xyz="1.60 -1.58 -1.42" rpy="-0.02 0 -0.02" />
          </collision>
          <visual name="visual">
             <geometry>
-               <mesh filename="package://ardupilot_sitl_gazebo_plugin/meshes/meshes_drones/cessna/left_flap.dae" />
+               <mesh filename="package://ardupilot_sitl_gazebo_rover_plugin/meshes/meshes_drones/cessna/left_flap.dae" />
             </geometry>
             <origin xyz="1.60 -1.58 -1.42" rpy="-0.02 0 -0.02" />
          </visual>
@@ -132,13 +132,13 @@
          </inertial>
          <collision name="collision">
             <geometry>
-               <mesh filename="package://ardupilot_sitl_gazebo_plugin/meshes/meshes_drones/cessna/right_flap.dae" />
+               <mesh filename="package://ardupilot_sitl_gazebo_rover_plugin/meshes/meshes_drones/cessna/right_flap.dae" />
             </geometry>
             <origin xyz="1.62 1.54 -1.46" rpy="-0.02 0 0.02" />
          </collision>
          <visual name="visual">
             <geometry>
-               <mesh filename="package://ardupilot_sitl_gazebo_plugin/meshes/meshes_drones/cessna/right_flap.dae" />
+               <mesh filename="package://ardupilot_sitl_gazebo_rover_plugin/meshes/meshes_drones/cessna/right_flap.dae" />
             </geometry>
             <origin xyz="1.62 1.54 -1.46" rpy="-0.02 0 0.02" />
          </visual>
@@ -163,13 +163,13 @@
          </inertial>
          <collision name="collision">
             <geometry>
-               <mesh filename="package://ardupilot_sitl_gazebo_plugin/meshes/meshes_drones/cessna/elevators.dae" />
+               <mesh filename="package://ardupilot_sitl_gazebo_rover_plugin/meshes/meshes_drones/cessna/elevators.dae" />
             </geometry>
             <origin xyz="5.55 0 -0.57" rpy="0 0 0" />
          </collision>
          <visual name="visual">
             <geometry>
-               <mesh filename="package://ardupilot_sitl_gazebo_plugin/meshes/meshes_drones/cessna/elevators.dae" />
+               <mesh filename="package://ardupilot_sitl_gazebo_rover_plugin/meshes/meshes_drones/cessna/elevators.dae" />
             </geometry>
             <origin xyz="5.55 0 -0.57" rpy="0 0 0" />
          </visual>
@@ -194,13 +194,13 @@
          </inertial>
          <collision name="collision">
             <geometry>
-               <mesh filename="package://ardupilot_sitl_gazebo_plugin/meshes/meshes_drones/cessna/rudder.dae" />
+               <mesh filename="package://ardupilot_sitl_gazebo_rover_plugin/meshes/meshes_drones/cessna/rudder.dae" />
             </geometry>
             <origin xyz="5.1 0 -3.25" rpy="0 0.35 0" />
          </collision>
          <visual name="visual">
             <geometry>
-               <mesh filename="package://ardupilot_sitl_gazebo_plugin/meshes/meshes_drones/cessna/rudder.dae" />
+               <mesh filename="package://ardupilot_sitl_gazebo_rover_plugin/meshes/meshes_drones/cessna/rudder.dae" />
             </geometry>
             <origin xyz="5.1 0 -3.25" rpy="0 0.35 0" />
          </visual>
@@ -225,12 +225,12 @@
          </inertial>
          <collision name="collision">
             <!--<geometry>
-               <mesh filename="package://ardupilot_sitl_gazebo_plugin/meshes/meshes_drones/cessna/cessna_prop.dae" />
+               <mesh filename="package://ardupilot_sitl_gazebo_rover_plugin/meshes/meshes_drones/cessna/cessna_prop.dae" />
             </geometry>-->
          </collision>
          <visual name="visual">
             <geometry>
-               <mesh filename="package://ardupilot_sitl_gazebo_plugin/meshes/meshes_drones/cessna/cessna_prop.dae" />
+               <mesh filename="package://ardupilot_sitl_gazebo_rover_plugin/meshes/meshes_drones/cessna/cessna_prop.dae" />
             </geometry>
          </visual>
       </link>
@@ -260,7 +260,7 @@
          </collision>
          <visual name="visual">
             <geometry>
-               <mesh filename="package://ardupilot_sitl_gazebo_plugin/meshes/meshes_drones/cessna/cessna_front_wheel.dae" />
+               <mesh filename="package://ardupilot_sitl_gazebo_rover_plugin/meshes/meshes_drones/cessna/cessna_front_wheel.dae" />
             </geometry>
             <origin xyz="-0.712 0 0.313" rpy="0 0 0" />
          </visual>
@@ -291,7 +291,7 @@
          </collision>
          <visual name="visual">
             <geometry>
-               <mesh filename="package://ardupilot_sitl_gazebo_plugin/meshes/meshes_drones/cessna/cessna_rear_left_wheel.dae" />
+               <mesh filename="package://ardupilot_sitl_gazebo_rover_plugin/meshes/meshes_drones/cessna/cessna_rear_left_wheel.dae" />
             </geometry>
             <origin xyz="1 1.27 0.25" rpy="0 0 0" />
          </visual>
@@ -322,7 +322,7 @@
          </collision>
          <visual name="visual">
             <geometry>
-               <mesh filename="package://ardupilot_sitl_gazebo_plugin/meshes/meshes_drones/cessna/cessna_rear_right_wheel.dae" />
+               <mesh filename="package://ardupilot_sitl_gazebo_rover_plugin/meshes/meshes_drones/cessna/cessna_rear_right_wheel.dae" />
             </geometry>
             <origin xyz="1 -1.27 0.25" rpy="0 0 0" />
          </visual>
@@ -430,7 +430,7 @@
       </gazebo>
 	  
       <gazebo>
-         <plugin name="left_wing" filename="libliftdrag_plugin.so">
+         <plugin name="left_wing" filename="libliftdrag_rover_plugin.so">
             <a0>0.0598</a0>
             <cla>4.752798721</cla>
             <cda>0.6417112299</cda>
@@ -451,7 +451,7 @@
       </gazebo>
 	  
       <gazebo>
-         <plugin name="right_wing" filename="libliftdrag_plugin.so">
+         <plugin name="right_wing" filename="libliftdrag_rover_plugin.so">
             <a0>0.0598</a0>
             <cla>4.752798721</cla>
             <cda>0.6417112299</cda>
@@ -472,7 +472,7 @@
       </gazebo>
 	  
       <gazebo>
-         <plugin name="left_flap_wing" filename="libliftdrag_plugin.so">
+         <plugin name="left_flap_wing" filename="libliftdrag_rover_plugin.so">
             <a0>0.0598</a0>
             <cla>4.752798721</cla>
             <cda>0.6417112299</cda>
@@ -494,7 +494,7 @@
       </gazebo>
 	  
       <gazebo>
-         <plugin name="right_flap_wing" filename="libliftdrag_plugin.so">
+         <plugin name="right_flap_wing" filename="libliftdrag_rover_plugin.so">
             <a0>0.0598</a0> <!-- -3.2 deg (0.09:5deg, 0.17:10deg)-->
             <cla>4.752798721</cla>
             <cda>0.6417112299</cda>
@@ -515,7 +515,7 @@
       </gazebo>
 	  
       <gazebo>
-         <plugin name="elevator" filename="libliftdrag_plugin.so">
+         <plugin name="elevator" filename="libliftdrag_rover_plugin.so">
             <a0>-0.2</a0>
             <cla>4.752798721</cla>
             <cda>0.6417112299</cda>
@@ -536,7 +536,7 @@
       </gazebo>
 	  
       <gazebo>
-         <plugin name="rudder" filename="libliftdrag_plugin.so">
+         <plugin name="rudder" filename="libliftdrag_rover_plugin.so">
             <a0>0</a0>
             <cla>4.752798721</cla>
             <cda>0.6417112299</cda>
@@ -557,7 +557,7 @@
       </gazebo>
 	  
       <gazebo>
-         <plugin name="propeller_top_blade" filename="libliftdrag_plugin.so">
+         <plugin name="propeller_top_blade" filename="libliftdrag_rover_plugin.so">
             <a0>0.4</a0>
             <cla>4.752798721</cla>
             <cda>0.6417112299</cda>
@@ -576,7 +576,7 @@
       </gazebo>
 	  
       <gazebo>
-         <plugin name="propeller_bottom_blade" filename="libliftdrag_plugin.so">
+         <plugin name="propeller_bottom_blade" filename="libliftdrag_rover_plugin.so">
             <a0>0.4</a0>
             <cla>4.752798721</cla>
             <cda>0.6417112299</cda>

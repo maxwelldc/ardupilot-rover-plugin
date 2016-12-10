@@ -11,8 +11,8 @@ World Folder:
 
 World File:
   Gazebo .world file. It must include the Ardupilot gazebo plugin:
-    <plugin name="ardupilot_sitl_gazebo_plugin"
-            filename="libardupilot_sitl_gazebo_plugin.so"/>
+    <plugin name="ardupilot_sitl_gazebo_rover_plugin"
+            filename="libardupilot_sitl_gazebo_rover_plugin.so"/>
 
 Map Image:
   MavProxy searches within the folder the first image that matches the

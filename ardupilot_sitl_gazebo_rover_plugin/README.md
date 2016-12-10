@@ -17,7 +17,7 @@ Then type in:
 RUNNING
 -------
 In a terminal, from anywhere, type:
-  roslaunch ardupilot_sitl_gazebo_plugin <launch_file>
+  roslaunch ardupilot_sitl_gazebo_rover_plugin <launch_file>
 
   with <launch_file> referencing a .launch file within the 'launch' folder,
   for example 'empty_world.launch'.

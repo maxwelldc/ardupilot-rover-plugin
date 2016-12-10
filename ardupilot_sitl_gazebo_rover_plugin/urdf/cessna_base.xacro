@@ -3,10 +3,10 @@
    <xacro:include filename="$(find rotors_description)/urdf/component_snippets.xacro" />
    
    <!-- Instantiate iris "mechanics" -->
-   <xacro:include filename="$(find ardupilot_sitl_gazebo_plugin)/urdf/cessna.xacro" />
+   <xacro:include filename="$(find ardupilot_sitl_gazebo_rover_plugin)/urdf/cessna.xacro" />
    
    <!-- Specify reference parameters for GNSS receiver. -->
-   <xacro:include filename="$(find ardupilot_sitl_gazebo_plugin)/urdf/gps_home_location.xacro" />
+   <xacro:include filename="$(find ardupilot_sitl_gazebo_rover_plugin)/urdf/gps_home_location.xacro" />
    
    <!-- Reference heading is equivalent to rotating Gazebo's map. We do not use it for we would loose the match X=North, Y=West -->
    

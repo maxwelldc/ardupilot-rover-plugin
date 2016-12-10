@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package>
-  <name>liftdrag_plugin</name>
+  <name>liftdrag_rover_plugin</name>
   <version>1.0.0</version>
-  <description>The liftdrag_plugin package</description>
+  <description>The liftdrag_rover_plugin package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
   <!-- Example:  -->

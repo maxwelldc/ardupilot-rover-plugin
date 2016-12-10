@@ -12,14 +12,14 @@
  * limitations under the License.
  */
 
-#include "../include/ardupilot_sitl_gazebo_plugin/ardupilot_sitl_gazebo_plugin.h"
+#include "../include/ardupilot_sitl_gazebo_rover_plugin/ardupilot_sitl_gazebo_rover_plugin.h"
 #include <math.h>
 
 
 
 namespace gazebo
 {
-void ArdupilotSitlGazeboPlugin::check_parachute_cmd(float servo_parachute)
+void ArdupilotSitlGazeboRoverPlugin::check_parachute_cmd(float servo_parachute)
 {
     // 0.5 is the threshold for parachute release
     if (servo_parachute < 0.5)
@@ -35,7 +35,7 @@ void ArdupilotSitlGazeboPlugin::check_parachute_cmd(float servo_parachute)
 
 // METHOD 1: Add a new parachute model, and make a joint between the 2 models
 
-void ArdupilotSitlGazeboPlugin::load_parachute_model()
+void ArdupilotSitlGazeboRoverPlugin::load_parachute_model()
 {
     // Gets a pointer to the UAV model
     _uav_model = _parent_world->GetModel(_modelName);
@@ -62,7 +62,7 @@ void ArdupilotSitlGazeboPlugin::load_parachute_model()
   Gazebo loads models asyncrhonously, in a thread. This callback method is called once
   the parachute model is loaded.
  */
-void ArdupilotSitlGazeboPlugin::on_parachute_model_loaded()
+void ArdupilotSitlGazeboRoverPlugin::on_parachute_model_loaded()
 {
     // This method is executed independently from the main loop thread.
     // Beware of access to shared variables memory. Use mutexes if required.

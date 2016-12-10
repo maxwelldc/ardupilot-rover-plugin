@@ -13,7 +13,7 @@
  */
 
 /*
- * Gazebo Plugin:  ardupilot_sitl_gazebo_plugin
+ * Gazebo Plugin:  ardupilot_sitl_gazebo_rover_plugin
  * Description: 
  *   Implements plugin's methods related to communication with Gazebo.
  *   e.g. initialization, Gazebo topics subscriptions, callback methods
@@ -28,7 +28,7 @@
 //    _msg->reset().has_model_only()
 
 
-#include "../include/ardupilot_sitl_gazebo_plugin/ardupilot_sitl_gazebo_plugin.h"
+#include "../include/ardupilot_sitl_gazebo_rover_plugin/ardupilot_sitl_gazebo_rover_plugin.h"
 
 namespace gazebo
 {
@@ -41,7 +41,7 @@ namespace gazebo
   Initializes variables related to Gazebo.
   In case of fatal failure, returns 'false'.
  */
-bool ArdupilotSitlGazeboPlugin::init_gazebo_side(physics::WorldPtr world, sdf::ElementPtr sdf)
+bool ArdupilotSitlGazeboRoverPlugin::init_gazebo_side(physics::WorldPtr world, sdf::ElementPtr sdf)
 {
     // Saves pointers to the parent world
     _parent_world = world;
@@ -75,15 +75,15 @@ bool ArdupilotSitlGazeboPlugin::init_gazebo_side(physics::WorldPtr world, sdf::E
     physicsMsg.set_max_step_size(STEP_SIZE_FOR_ARDUPILOT);
     physicsPub->Publish(physicsMsg);
     
-    _controlSub = node->Subscribe("~/world_control", &ArdupilotSitlGazeboPlugin::on_gazebo_control, this);
+    _controlSub = node->Subscribe("~/world_control", &ArdupilotSitlGazeboRoverPlugin::on_gazebo_control, this);
     
-    _modelInfoSub = node->Subscribe("~/model/info", &ArdupilotSitlGazeboPlugin::on_gazebo_modelInfo, this);
+    _modelInfoSub = node->Subscribe("~/model/info", &ArdupilotSitlGazeboRoverPlugin::on_gazebo_modelInfo, this);
     
     //this->newFrameConnection = this->camera->ConnectNewImageFrame(
     //  boost::bind(&CameraPlugin::OnNewFrame, this, _1, _2, _3, _4, _5));
 
     _updateConnection = event::Events::ConnectWorldUpdateEnd(
-          boost::bind(&ArdupilotSitlGazeboPlugin::on_gazebo_update, this));
+          boost::bind(&ArdupilotSitlGazeboRoverPlugin::on_gazebo_update, this));
     // Or we could also use 'ConnectWorldUpdateBegin'
     // For a list of all available connection events, see: Gazebo-X.X/gazebo/common/Events.hh 
     
@@ -98,7 +98,7 @@ bool ArdupilotSitlGazeboPlugin::init_gazebo_side(physics::WorldPtr world, sdf::E
 /*
   Advances the simulation by 1 step
  */
-void ArdupilotSitlGazeboPlugin::step_gazebo_sim()
+void ArdupilotSitlGazeboRoverPlugin::step_gazebo_sim()
 {
     // The simulation must be in Pause mode for the Step function to work.
     // This ensures that Ardupilot does not miss a single step of the physics solver.
@@ -112,7 +112,7 @@ void ArdupilotSitlGazeboPlugin::step_gazebo_sim()
   Callback from gazebo after each simulation step
   (thus after each call to 'step_gazebo_sim()')
  */
-void ArdupilotSitlGazeboPlugin::on_gazebo_update()
+void ArdupilotSitlGazeboRoverPlugin::on_gazebo_update()
 {
     // This method is executed independently from the main loop thread.
     // Beware of access to shared variables memory. USe mutexes if required.
@@ -133,7 +133,7 @@ void ArdupilotSitlGazeboPlugin::on_gazebo_update()
   Emulates the Pause GUI button functionnality.
   Shortcomings: The GUI button does not change shape between Play/Resume
  */
-void ArdupilotSitlGazeboPlugin::on_gazebo_control(ConstWorldControlPtr &_msg)
+void ArdupilotSitlGazeboRoverPlugin::on_gazebo_control(ConstWorldControlPtr &_msg)
 {
     // This method is executed independently from the main loop thread.
     // Beware of access to shared variables memory. Use mutexes if required.
@@ -160,7 +160,7 @@ void ArdupilotSitlGazeboPlugin::on_gazebo_control(ConstWorldControlPtr &_msg)
   Callback method when a new model is added on Gazebo.
   Used to detect the end of asynchronous model loading.
  */
-void ArdupilotSitlGazeboPlugin::on_gazebo_modelInfo(ConstModelPtr &_msg)
+void ArdupilotSitlGazeboRoverPlugin::on_gazebo_modelInfo(ConstModelPtr &_msg)
 {
     // This method is executed independently from the main loop thread.
     // Beware of access to shared variables memory. Use mutexes if required.

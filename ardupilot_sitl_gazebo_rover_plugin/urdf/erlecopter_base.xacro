@@ -3,10 +3,10 @@
 <robot name="erlecopter" xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:include filename="$(find rotors_description)/urdf/component_snippets.xacro" />
   <!-- Instantiate erlecopter "mechanics" -->
-  <xacro:include filename="$(find ardupilot_sitl_gazebo_plugin)/urdf/erlecopter.xacro" />
+  <xacro:include filename="$(find ardupilot_sitl_gazebo_rover_plugin)/urdf/erlecopter.xacro" />
   
   <!-- Specify reference parameters for GNSS receiver. -->
-  <xacro:include filename="$(find ardupilot_sitl_gazebo_plugin)/urdf/gps_home_location.xacro" />
+  <xacro:include filename="$(find ardupilot_sitl_gazebo_rover_plugin)/urdf/gps_home_location.xacro" />
   <!-- Reference heading is equivalent to rotating Gazebo's map.
        We do not use it for we would loose the match X=North, Y=West -->
   <!-- in degrees, 0 so North is towards positive X values, and East is towards negative Y values -->
